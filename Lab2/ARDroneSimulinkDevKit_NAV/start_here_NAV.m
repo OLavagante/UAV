@@ -37,8 +37,9 @@ switch option
         disp('Select one of the following options for simulation:'); 
         disp('    (1) Baseline simulation: The ARDrone block with inputs and scopes to visualize outputs'); 
         disp('    (2) Hover: Vehicle is held at constant position');
-        disp('    (3) Kalman: aaaaa');
-        disp('    (4) Waypoint tracking: Vehicle tracks a list of waypoints'); 
+        disp('    (3) Kalman Filter: Pitch');
+        disp('    (4) Kalman Filter: Roll');
+        disp('    (5) Waypoint tracking: Vehicle tracks a list of waypoints'); 
         option2 = input(' ');
         
         switch option2
@@ -50,8 +51,11 @@ switch option
                 setupHoverSim; 
             case 3
                 cd simulation;
-                setupHoverSimKalman;
+                setupSimKalmanPitch;
             case 4
+                cd simulation;
+                setupSimKalmanRoll
+            case 5
                 cd simulation; 
                 setupWPTrackingSim;
             otherwise
@@ -63,7 +67,9 @@ switch option
     case 2
         disp('Select one of the following options for Wi-Fi control:'); 
         disp('    (1) Hover: Vehicle is held at constant position'); 
-        disp('    (2) Waypoint tracking: Vehicle tracks a list of waypoints'); 
+        disp('    (2) Kalman Filter: Pitch'); 
+        disp('    (3) Kalman Filter: Roll'); 
+        disp('    (4) Waypoint tracking: Vehicle tracks a list of waypoints'); 
         option2 = input(' ');
         
         switch option2
@@ -74,6 +80,12 @@ switch option
                 % using 'rtwintgt -setup'
                 % rtwbuild('ARDroneHover_V2');
             case 2
+                cd wifiControl;
+                setupKalmanPitch;
+            case 3
+                cd wifiControl;
+                setupKalmanRoll;
+            case 4
                 cd wifiControl; 
                 setupWPTracking;  
                 % Building model using RTWT. Install rtwt if not installed 

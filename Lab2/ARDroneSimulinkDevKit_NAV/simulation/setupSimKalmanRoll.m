@@ -1,15 +1,3 @@
-%% =======================================================================
-%  ARDrone Simulation Example: Hovering and Position Control
-%  =======================================================================
-%  
-%  The simulation is used to validate the controller and guidance logic of
-%  the ARDRone before flight testing. Control blocks are
-%  exactly the same for both simulation and real-time Wi-Fi control.
-%  
-%  Authors:
-%       David Escobar Sanabria -> descobar@aem.umn.edu
-%       Pieter J. Mosterman -> pieter.mosterman@mathworks.com
-%  =======================================================================
 
 %%
 %  Cleaning workspace
@@ -29,6 +17,8 @@ FMS.Ts = 0.065;
 % Time delay due to communication between drone and host computer
 timeDelay = FMS.Ts*4; 
 
+%% Load Kalman Filter vars into Workspace
+simKalmanSettingsRoll;
 
 %% Vehicle model based on linear dynamics
 
