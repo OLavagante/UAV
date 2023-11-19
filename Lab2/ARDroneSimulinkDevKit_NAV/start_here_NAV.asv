@@ -87,10 +87,10 @@ switch option
                 disp('An incorrect option was selected')
         end
     case 3
-        disp('Select one of the following options for Replaying Data:'); 
+        disp('Select one of the following options for Wi-Fi control:'); 
         disp('    (1) Normal Replay'); 
-        disp('    (2) Test Kalman Filter: Pitch'); 
-        disp('    (3) Test Kalman Filter: Roll');
+        disp('    (2) Replay w/Kalman Filter: Pitch'); 
+        disp('    (3) Replay w/Kalman Filter: Roll');
         option3 = input(' ');
         
         switch option3
@@ -105,16 +105,11 @@ switch option
                 filename = input(' ','s');
                 load(filename)
                 cd Replay;
-                setupReplayKalmanPitch;
+                setupReplay;
             case 3
-                disp('Filename from where navdata will be loaded:'); 
-                filename = input(' ','s');
-                load(filename)
-                cd Replay;
-                setupReplayKalmanRoll;
+                
             otherwise
-                disp('An incorrect option was selected')
-        end
+
               
         
     otherwise

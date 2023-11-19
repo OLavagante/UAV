@@ -9,6 +9,6 @@ D = [0];
 
 sys = ss(A,B,C,D);
 
-Q = 16e-4; %Covariance of the y-axis gyroscope
-R = 0.0517; %Variance of the Pitch Inclinometer
+Q = ; %Covariance of the x-axis gyroscope
+R = ; %Variance of the Roll Inclinometer
 
