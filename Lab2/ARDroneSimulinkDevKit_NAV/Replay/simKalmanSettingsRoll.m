@@ -12,3 +12,4 @@ sys = ss(A,B,C,D);
 Q = ; %Covariance of the x-axis gyroscope
 R = ; %Variance of the Roll Inclinometer
 
+sysdRoll = c2d(sys, sampleTime);

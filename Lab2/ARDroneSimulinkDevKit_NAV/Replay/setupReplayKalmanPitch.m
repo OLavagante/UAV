@@ -7,4 +7,4 @@ sampleTime = 1/200;
 simKalmanSettingsPitch;
 
 %%
-ARDroneReplay_V2 ; 
+ARDroneReplayKalmanPitch;

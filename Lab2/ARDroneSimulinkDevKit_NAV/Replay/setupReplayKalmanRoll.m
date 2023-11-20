@@ -7,4 +7,4 @@ sampleTime = 1/200;
 simKalmanSettingsRoll;
 
 %%
-ARDroneReplay_V2 ; 
+ARDroneReplayKalmanRoll ; 
