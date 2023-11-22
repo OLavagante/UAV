@@ -72,11 +72,37 @@ switch option
                 % using 'rtwintgt -setup'
                 % rtwbuild('ARDroneHover_V2');
             case 2
-                cd wifiControl;
-                setupKalmanPitch;
+                disp('Select one of the following options for the Pitch Kalman Filter:');
+                disp('  (1) Pitch Estimation Without Bias Compensation');
+                disp('  (2) Pitch Estimation With Bias Compensation');
+                option3 = input(' ');
+
+                switch option3
+                    case 1
+                        cd wifiControl;
+                        setupKalmanPitch;
+                    case 2
+                        cd wifiControl;
+                        setupKalmanPitchBias;
+                    otherwise
+                        disp('An incorrect option was selected')
+                end
             case 3
-                cd wifiControl;
-                setupKalmanRoll;
+                disp('Select one of the following options for the Pitch Kalman Filter:');
+                disp('  (1) Pitch Estimation Without Bias Compensation');
+                disp('  (2) Pitch Estimation With Bias Compensation');
+                option3 = input(' ');
+
+                switch option3
+                    case 1
+                        cd wifiControl;
+                        setupKalmanPitch;
+                    case 2
+                        cd wifiControl;
+                        setupKalmanPitchBias;
+                    otherwise
+                        disp('An incorrect option was selected')
+                end
             case 4
                 cd wifiControl; 
                 setupWPTracking;  
@@ -87,10 +113,10 @@ switch option
                 disp('An incorrect option was selected')
         end
     case 3
-        disp('Select one of the following options for Wi-Fi control:'); 
+        disp('Select one of the following options for Replaying Data:'); 
         disp('    (1) Normal Replay'); 
-        disp('    (2) Replay w/Kalman Filter: Pitch'); 
-        disp('    (3) Replay w/Kalman Filter: Roll');
+        disp('    (2) Test Kalman Filter: Pitch'); 
+        disp('    (3) Test Kalman Filter: Roll');
         option3 = input(' ');
         
         switch option3
@@ -105,11 +131,16 @@ switch option
                 filename = input(' ','s');
                 load(filename)
                 cd Replay;
-                setupReplay;
+                setupReplayKalmanPitch;
             case 3
-                
+                disp('Filename from where navdata will be loaded:'); 
+                filename = input(' ','s');
+                load(filename)
+                cd Replay;
+                setupReplayKalmanRoll;
             otherwise
-
+                disp('An incorrect option was selected')
+        end
               
         
     otherwise

@@ -1,5 +1,4 @@
-%Setup Vars for Kalman Filter Implementation
-
+%% Setup Vars for Kalman Filter Implementation
 
 %Kalman Filter
 A = [0];
@@ -7,9 +6,14 @@ B = [1];
 C = [1];
 D = [0];
 
-sys = ss(A,B,C,D);
+ss_pitch = ss(A,B,C,D);
 
-Q = 16e-4; %Covariance of the y-axis gyroscope
-R = 0.0517; %Variance of the Pitch Inclinometer
+Q = 0.0012; %Variance of the y-axis gyroscope
+R = 9.8949e-05; %Variance of the Pitch Inclinometer
 
-sysdPitch = c2d(sys, sampleTime);
+ss_pitch_discrete = c2d(ss_pitch, sampleTime);
+
+[kfilter, Lk] = kalman(ss_pitch, Q, R, 0);
+
+% kgain = lqe(A, 1, C, Q, R);
+% disp(kgain)

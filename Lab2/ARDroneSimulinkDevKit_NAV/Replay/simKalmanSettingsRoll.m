@@ -1,4 +1,4 @@
-%Setup Vars for Kalman Filter Implementation
+%% Setup Vars for Kalman Filter Implementation
 
 
 %Kalman Filter
@@ -7,9 +7,14 @@ B = [1];
 C = [1];
 D = [0];
 
-sys = ss(A,B,C,D);
+ss_roll = ss(A,B,C,D);
 
-Q = ; %Covariance of the x-axis gyroscope
-R = ; %Variance of the Roll Inclinometer
+Q = 0.0020; %Variance of the x-axis gyroscope
+R = 1.1099e-04; %Variance of the Roll Inclinometer
 
-sysdRoll = c2d(sys, sampleTime);
+ss_roll_discrete = c2d(ss_roll, sampleTime);
+
+[kfilter, Lk] = kalman(ss_roll, Q, R, 0);
+
+% kgain = lqe(A, 1, C, Q, R);
+% disp(kgain)

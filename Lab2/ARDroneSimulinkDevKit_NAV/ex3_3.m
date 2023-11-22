@@ -20,6 +20,7 @@ title('Accelerometer Data for Exp. C', FontSize=15)
 hold on; xline(20, 'k--'); xline(60, 'k--'); hold off
 legend(['x-axis'; 'y-axis';'z-axis';'';''])
 grid on
+xlim([10 63]); ylim([-11 1])
 
 figure
 plot(sens_gyro.time, sens_gyro.signals.values*(pi/180))
@@ -28,3 +29,4 @@ title('Rate Gyro Data for Exp. C', FontSize=15)
 hold on; xline(20, 'k--'); xline(60, 'k--'); hold off
 legend(['x-axis'; 'y-axis';'z-axis';'';''])
 grid on
+xlim([10 63]); ylim([-0.4 0.4])

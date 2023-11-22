@@ -72,11 +72,37 @@ switch option
                 % using 'rtwintgt -setup'
                 % rtwbuild('ARDroneHover_V2');
             case 2
-                cd wifiControl;
-                setupKalmanPitch;
+                disp('Select one of the following options for the Pitch Kalman Filter:');
+                disp('  (1) Pitch Estimation Without Bias Compensation');
+                disp('  (2) Pitch Estimation With Bias Compensation');
+                option3 = input(' ');
+
+                switch option3
+                    case 1
+                        cd wifiControl;
+                        setupKalmanPitch;
+                    case 2
+                        cd wifiControl;
+                        setupKalmanPitchBias;
+                    otherwise
+                        disp('An incorrect option was selected')
+                end
             case 3
-                cd wifiControl;
-                setupKalmanRoll;
+                disp('Select one of the following options for the Roll Kalman Filter:');
+                disp('  (1) Roll Estimation Without Bias Compensation');
+                disp('  (2) Roll Estimation With Bias Compensation');
+                option4 = input(' ');
+
+                switch option4
+                    case 1
+                        cd wifiControl;
+                        setupKalmanRoll;
+                    case 2
+                        cd wifiControl;
+                        setupKalmanRollBias;
+                    otherwise
+                        disp('An incorrect option was selected')
+                end
             case 4
                 cd wifiControl; 
                 setupWPTracking;  
@@ -91,9 +117,9 @@ switch option
         disp('    (1) Normal Replay'); 
         disp('    (2) Test Kalman Filter: Pitch'); 
         disp('    (3) Test Kalman Filter: Roll');
-        option3 = input(' ');
+        option5 = input(' ');
         
-        switch option3
+        switch option5
             case 1
                 disp('Filename from where navdata will be loaded:'); 
                 filename = input(' ','s');
@@ -101,17 +127,51 @@ switch option
                 cd Replay;
                 setupReplay;
             case 2
-                disp('Filename from where navdata will be loaded:'); 
-                filename = input(' ','s');
-                load(filename)
-                cd Replay;
-                setupReplayKalmanPitch;
+                disp('Select one of the following options for the Pitch Kalman Filter:');
+                disp('  (1) Replay: Pitch Estimation Without Bias Compensation');
+                disp('  (2) Replay: Pitch Estimation With Bias Compensation');
+                option6 = input(' ');
+
+                switch option6
+                    case 1
+                        disp('Filename from where navdata will be loaded:'); 
+                        filename = input(' ','s');
+                        load(filename)
+                        cd Replay;
+                        setupReplayKalmanPitch;
+                    case 2
+                        disp('Filename from where navdata will be loaded:'); 
+                        filename = input(' ','s');
+                        load(filename)
+                        cd Replay;
+                        setupReplayKalmanPitchBias;
+                    otherwise
+                        disp('An incorrect option was selected')
+                end
+
             case 3
-                disp('Filename from where navdata will be loaded:'); 
-                filename = input(' ','s');
-                load(filename)
-                cd Replay;
-                setupReplayKalmanRoll;
+                disp('Select one of the following options for the Roll Kalman Filter:');
+                disp('  (1) Replay: Roll Estimation Without Bias Compensation');
+                disp('  (2) Replay: Roll Estimation With Bias Compensation');
+                option7 = input(' ');
+
+                switch option7
+                    case 1
+                        disp('Filename from where navdata will be loaded:'); 
+                        filename = input(' ','s');
+                        load(filename)
+                        cd Replay;
+                        setupReplayKalmanRoll;
+                    case 2
+                        disp('Filename from where navdata will be loaded:'); 
+                        filename = input(' ','s');
+                        load(filename)
+                        cd Replay;
+                        setupReplayKalmanRollBias;
+                    otherwise
+                        disp('An incorrect option was selected')
+                end
+                
             otherwise
                 disp('An incorrect option was selected')
         end
