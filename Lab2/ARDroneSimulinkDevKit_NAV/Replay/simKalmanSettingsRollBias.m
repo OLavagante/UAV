@@ -8,12 +8,14 @@ D = 0;
 
 ss_roll = ss(A,B,C,D);
 
-Q = [0.0012 0; 0 0.001]; %Variance of the x-axis gyroscope
-R = 1; %Variance of the Roll Inclinometer
+Q = [2.5232e-4 0;
+     0 1e-12]; %Variance of the x-axis gyroscope
+R = 0.6555e-4; %Variance of the Roll Inclinometer
+R = Q(1,1)*1000;
 
 ss_roll_discrete = c2d(ss_roll, sampleTime);
 
 % [kfilter, Lk] = kalman(ss_pitch_bias, Q, R, 0);
 
-Lk = lqe(A, 1, C, Q, R);
+Lk = lqe(A, eye(2), C, Q, R);
 % disp(kgain)

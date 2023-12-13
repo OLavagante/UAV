@@ -17,6 +17,8 @@
 % bdclose all;
 clc
 
+meanAcce3 = [-0.0108248998661285 0.149142386085094 -9.620196316402833];
+
 %%
 disp('This script guides the user through examples of both simulations and');
 disp('Wi-Fi control Simulink models for the Parrot ARDrone ');
@@ -28,7 +30,6 @@ disp('    (2) Wi-Fi control. The computer shoud be connected to the drone');
 disp('    (3) Replay from stored data'); 
 
 option = input('');
-
 
 %%
 switch option
@@ -113,6 +114,7 @@ switch option
                 disp('An incorrect option was selected')
         end
     case 3
+        addpath ExpRuns\
         disp('Select one of the following options for Replaying Data:'); 
         disp('    (1) Normal Replay'); 
         disp('    (2) Test Kalman Filter: Pitch'); 

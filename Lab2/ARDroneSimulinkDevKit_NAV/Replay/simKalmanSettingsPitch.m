@@ -8,8 +8,9 @@ D = [0];
 
 ss_pitch = ss(A,B,C,D);
 
-Q = 0.0012; %Variance of the y-axis gyroscope
-R = 9.8949e-05; %Variance of the Pitch Inclinometer
+Q = 11.6166e-4; %Variance of the y-axis gyroscope
+R = 0.4418e-04; %Variance of the Pitch Inclinometer
+R = Q*100;
 
 ss_pitch_discrete = c2d(ss_pitch, sampleTime);
 

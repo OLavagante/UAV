@@ -9,8 +9,9 @@ D = [0];
 
 ss_roll = ss(A,B,C,D);
 
-Q = 0.0020; %Variance of the x-axis gyroscope
-R = 1.1099e-04; %Variance of the Roll Inclinometer
+Q = 2.5232e-4; %Variance of the x-axis gyroscope
+R = 0.6555e-04; %Variance of the Roll Inclinometer
+R = Q*100;
 
 ss_roll_discrete = c2d(ss_roll, sampleTime);
 

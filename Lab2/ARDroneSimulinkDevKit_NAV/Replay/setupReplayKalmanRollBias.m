@@ -7,4 +7,4 @@ sampleTime = 1/200;
 simKalmanSettingsRollBias;
 
 %%
-ARDroneReplayKalmanRoll; 
+ARDroneReplayKalmanRollBias; 
